@@ -14,8 +14,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'  # کلید امنیتی برای نشست‌ها
 
 # اطلاعات ورود (می‌توانید تغییر دهید)
-USERNAME = "admin"
-PASSWORD = "1234"
+USERNAME = "tala"
+PASSWORD = "milad"
 
 # تابع جدا کردن سه رقم سه رقم اعداد
 def format_number(number):
