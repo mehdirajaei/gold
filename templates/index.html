@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاسبه گر طلا</title>
+    <style>
+        body { font-family: Arial, sans-serif; direction: rtl; text-align: center; }
+        input { margin: 5px; padding: 5px; }
+        button { padding: 10px; }
+        .result { font-size: 1.5em; color: green; }
+    </style>
+</head>
+<body>
+    <h1>محاسبه گر طلا(جواهری میلاد نور)</h1>
+    <h3>تهیه و تنظیم: مهدی رجائی سلماسی</h3>
+    <h4>تقدیم به: مسعود ابوطالبی</h4>
+
+    <form method="POST">
+        <label for="price_per_gram">قیمت روز (به تومان):</label>
+        <input type="number" name="price_per_gram" id="price_per_gram" step="0.01" required><br>
+
+        <label for="weight">وزن (به گرم):</label>
+        <input type="number" name="weight" id="weight" step="0.01" required><br>
+
+        <label for="profit">سود (%):</label>
+        <input type="number" name="profit" id="profit" step="0.01" required><br>
+
+        <label for="tax">مالیات (%):</label>
+        <input type="number" name="tax" id="tax" step="0.01" required><br>
+
+        <label for="manufacture_cost">اجرت ساخت (%):</label>
+        <input type="number" name="manufacture_cost" id="manufacture_cost" step="0.01" required><br>
+
+        <button type="submit">محاسبه</button>
+    </form>
+
+    {% if final_price is not none %}
+        <div class="result">
+            <h2>قیمت نهایی: {{ "{:,.2f}".format(final_price) }} تومان</h2>
+            <h3>({{ final_price_words }})</h3>
+        </div>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('logout') }}">خروج</a>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
