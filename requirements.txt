@@ -1,4 +1,6 @@
 Flask
 Werkzeug
 num2fawords
+Babel
+num2words
 gunicorn
