@@ -4,6 +4,12 @@ import os
 import locale
 from num2fawords import words  # تبدیل عدد به حروف فارسی
 
+# رفع مشکل locale در محیط‌های غیر GUI مانند Render
+try:
+    locale.setlocale(locale.LC_ALL, 'fa_IR.UTF-8')  # تنظیم زبان فارسی
+except locale.Error:
+    locale.setlocale(locale.LC_ALL, 'C')  # مقدار پیش‌فرض در صورت عدم پشتیبانی
+
 app = Flask(__name__)
 
 # تنظیمات لوکال برای جدا کردن اعداد ۳ رقم ۳ رقم
