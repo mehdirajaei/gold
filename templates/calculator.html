@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>محاسبه‌گر طلا</title>
+</head>
+<body>
+    <h2>محاسبه‌گر طلا</h2>
+    <form method="post">
+        <label>قیمت روز (هر گرم):</label>
+        <input type="text" name="price_per_gram" required>
+        <br>
+        <label>اجرت ساخت:</label>
+        <input type="text" name="wage" required>
+        <br>
+        <label>وزن (گرم):</label>
+        <input type="text" name="weight" required>
+        <br>
+        <label>سود (%):</label>
+        <input type="text" name="profit" required>
+        <br>
+        <label>مالیات (%):</label>
+        <input type="text" name="tax" required>
+        <br>
+        <button type="submit">محاسبه</button>
+    </form>
+
+    {% if final_price %}
+        <h3>قیمت نهایی: {{ final_price }} تومان</h3>
+        <h4>به حروف: {{ final_price_words }}</h4>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('logout') }}">خروج</a>
+</body>
+</html>
