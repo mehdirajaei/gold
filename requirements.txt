@@ -1,0 +1,4 @@
+Flask
+Werkzeug
+num2fawords
+gunicorn
